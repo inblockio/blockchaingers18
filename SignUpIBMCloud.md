@@ -25,6 +25,16 @@ Link to IBM Cloud https://ibm.biz/BdZSke. Please register first & then I'll help
 
 # Local dev environment
 
+How to install your local fabric dev environment and make it compatible with IBM cloud
+
+1. please install the requirements:
+https://ibm-blockchain.github.io/develop/installing/installing-prereqs.html
+
+2. please follow the instructions here:
+https://ibm-blockchain.github.io/develop/installing/development-tools.html
+
+3. MAKE SURE YOU GET THE CORRECT VERSION OF FABRIC:
+
 Again, Edgar write: Just for your information....I use on hyperledger fabric 1.1-rc1 on my laptop to be compatible with blockchain service on ibm cloud 
 to properly download correct version of fabric and start correct version I changed two files in the fabric-tools
 
