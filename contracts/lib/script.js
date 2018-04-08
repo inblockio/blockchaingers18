@@ -74,7 +74,6 @@ async function respondAccessRight(RespondAccessRight){
   accessRightEvent.creator = RespondAccessRight.creator;
   accessRightEvent.dataSource = accessRight.dataSource;
   emit(accessRightEvent);
-  
   accessRight.accessRightStatus = RespondAccessRight.status;
   await accessRightRegistry.update(accessRight);
 }
@@ -87,30 +86,31 @@ async function respondAccessRight(RespondAccessRight){
 async function initialize(tx) {
   await removeAll();
   let factory = getFactory();
-  
-  console.log("Retailer");
   let retailerRegistry = await getParticipantRegistry(NS + '.Retailer');
   let retailer = factory.newResource(NS, 'Retailer', '2');
   await retailerRegistry.addAll([retailer]);
-  
-  console.log("ProSumer");
   let proSumerRegistry = await getParticipantRegistry(NS + '.ProSumer');
   let proSumer = factory.newResource(NS, 'ProSumer', '2');
   await proSumerRegistry.addAll([proSumer]);
-  
-  // add accessright
-  console.log("AccessRight");
+  createAccessRightAssets(proSumer, retailer);
+}
+
+/**
+ * 	
+ */
+async function createAccessRightAssets(pro, ret){
+  let factory = getFactory();
   let accessRightRegistry = await getAssetRegistry(NS + '.AccessRight');
   let accessRight = factory.newResource(NS, 'AccessRight', '2');
   accessRight.accessCount = 0;
   accessRight.accessRightStatus = "APPROVED";
-  accessRight.dataHolder = retailer;
-  accessRight.dataOwner = proSumer;
-  accessRight.creator = proSumer;
+  accessRight.dataHolder = ret;
+  accessRight.dataOwner = pro;
+  accessRight.creator = pro;
   accessRight.dataSource = "P1";
   accessRight.expiryDate = "hello";
   await accessRightRegistry.addAll([accessRight]);
-};
+}
 
 /**
 *  Track a access event
