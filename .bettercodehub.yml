@@ -1,0 +1,3 @@
+exclude:
+- /frontend/Dashboard/plugins/ .*
+- /frontend/Dashboard/Grundfile\.js
