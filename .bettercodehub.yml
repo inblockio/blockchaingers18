@@ -1,5 +1,12 @@
 exclude:
 - /frontend/dashboard/plugins/.*
+- /frontend/dashboard/documentation/.*
+- /frontend/dashboard/build/.*
+- /frontend/dashboard/dist/.*
 - /frontend/dashboard/bower_components/.*
-- /frontend/dashboard/Grundfile\.js
+- /frontend/dashboard/Gruntfile\.js
+
 component_depth: 1
+languages:
+- script
+- javascript
