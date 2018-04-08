@@ -1,4 +1,4 @@
 exclude:
-- ./frontend/Dashboard/plugins/.*
-- ./frontend/Dashboard/bower_components/.*
-- ./frontend/Dashboard/Grundfile\.js
+- /frontend/Dashboard/plugins/.*
+- /frontend/Dashboard/bower_components/.*
+- /frontend/Dashboard/Grundfile\.js
