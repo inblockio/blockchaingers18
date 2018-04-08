@@ -2,3 +2,4 @@ exclude:
 - /frontend/dashboard/plugins/.*
 - /frontend/dashboard/bower_components/.*
 - /frontend/dashboard/Grundfile\.js
+component_depth: 1
