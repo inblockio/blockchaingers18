@@ -25,3 +25,7 @@ tar -xvf ${filename}
 rm ${filename}
 
 ./downloadFabric.sh
+if [ ! $? -eq 0 ]; then exit 1; fi
+
+cd ./frontend/server && npm install
+cd -
