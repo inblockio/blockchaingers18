@@ -1,0 +1,79 @@
+/**
+ * New model file
+ */
+
+namespace org.acme.model
+
+asset AccessRight identified by accessRightHash {
+  o String accessRightHash
+  o AccessRightStatus accessRightStatus
+  o String expiryDate
+  o Integer accessCount optional // @todo remove optional
+  o DataSource dataSource
+  --> ProSumer dataOwner
+  --> Retailer dataHolder
+  --> User creator
+}
+
+abstract participant User {
+}
+
+participant ProSumer identified by prosumerID extends User{
+  o String prosumerID
+}
+
+participant Retailer identified by retailerID extends User{
+  o String retailerID
+}
+
+enum DataSource {
+  o P1
+  o P4
+  o KYC
+  o ALL
+}
+
+enum AccessRightStatus {
+  o PENDING
+  o APPROVED
+  o REJECTED
+}
+
+event AccessRightEvent{
+  o String accessRightHash
+  o String prosumerID
+  o String retailerID
+  o String accessRightStatus
+  o String expiryDate
+  o DataSource dataSource
+  --> User creator
+}
+
+event AccessEvent {
+  o String retailerID
+  o String prosumerID
+  o String accessRightHash
+}
+
+transaction CreateAccessRight {
+  o String accessRightHash
+  o String expiryDate
+  o DataSource dataSource
+  --> User creator
+  --> ProSumer dataOwner
+  --> Retailer dataHolder
+}
+
+transaction RespondAccessRight {
+  o String accessRightHash
+  o String status
+  --> ProSumer dataOwner
+  --> Retailer dataHolder
+  --> User creator
+}
+
+transaction TrackAccess {
+  --> AccessRight accessRight
+}
+
+transaction Initialize {}

@@ -14,38 +14,38 @@ rule NetworkAdminSystem {
     action: ALLOW
 }
 
-rule IntentSender {
-    description: "Allow the owner of a data total access to intent"
+rule AccessRightSender {
+    description: "Allow the owner of a data total access to accessRight"
     participant(m): "org.acme.model.ProSumer"
     operation: ALL
-    resource(v): "org.acme.model.CreateIntent"
-    condition: (v.dataOwner.getIdentifier() == m.getIdentifier())
+    resource(v): "org.acme.model.CreateAccessRight"
+    condition: (v.dataOwner.getIdentifier() == m.getIdentifier() && m != v.creator)
     action: ALLOW
 }
 
-rule IntentApprover {
-    description: "Allow the holder of a vehicle total access"
+rule AccessRightApprover {
+    description: "Allow the holder of a "
     participant(m): "org.acme.model.Retailer"
     operation: ALL
-    resource(v): "org.acme.model.ApproveIntent"
-    condition: (v.dataHolder.getIdentifier() == m.getIdentifier())
+    resource(v): "org.acme.model.RespondAccessRight"
+    condition: (v.dataHolder.getIdentifier() == m.getIdentifier() && m != v.creator)
     action: ALLOW
 }
 
 rule DataOwner {
-    description: "Allow the owner of a data total access to intent"
+    description: "Allow the owner of a data total access to accessRight"
     participant(m): "org.acme.model.ProSumer"
     operation: READ
-    resource(v): "org.acme.model.Intent"
+    resource(v): "org.acme.model.AccessRight"
     condition: (v.dataOwner.getIdentifier() == m.getIdentifier())
     action: ALLOW
 }
 
 rule DataHolder {
-    description: "Allow the holder of a vehicle total access"
+    description: "Allow the holder of a "
     participant(m): "org.acme.model.Retailer"
     operation: READ
-    resource(v): "org.acme.model.Intent"
+    resource(v): "org.acme.model.AccessRight"
     condition: (v.dataHolder.getIdentifier() == m.getIdentifier())
     action: ALLOW
 }
