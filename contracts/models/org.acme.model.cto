@@ -37,6 +37,7 @@ enum AccessRightStatus {
   o PENDING
   o APPROVED
   o REJECTED
+  o REVOKED
 }
 
 event AccessRightEvent{
@@ -70,6 +71,11 @@ transaction RespondAccessRight {
   --> ProSumer dataOwner
   --> Retailer dataHolder
   --> User creator
+}
+
+
+transaction RevokeAccessRight {
+  --> AccessRight accessRight
 }
 
 transaction TrackAccess {

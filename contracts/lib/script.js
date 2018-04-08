@@ -2,7 +2,7 @@
  * DESCRIPTION
  */
 
-var NS = 'org.acme.model';
+const NS = 'org.acme.model';
 
 async function removeAllByResource(ns, func) {
  	let reg = await func(ns);
@@ -10,7 +10,7 @@ async function removeAllByResource(ns, func) {
   	console.log("removeAll:items: ", items)
   	await reg.removeAll(items);
 }
-
+     
 /**
  * 	
  */
@@ -18,6 +18,28 @@ async function removeAll() {
   await removeAllByResource(NS+'.AccessRight', getAssetRegistry);
   await removeAllByResource(NS+'.ProSumer', getParticipantRegistry);
   await removeAllByResource(NS+'.Retailer', getParticipantRegistry);
+}
+
+/**
+ * @param {org.acme.model.RevokeAccessRight} RevokeAccessRight
+ * @transaction
+ */
+async function RevokeAccessRight(RevokeAccessRight){
+  let factory = getFactory();
+  let accessRight = RevokeAccessRight.accessRight;
+  accessRight.accessRightStatus = "REVOKED";
+  let accessRightRegistry = await getAssetRegistry(NS+'.AccessRight');
+  await accessRightRegistry.update(accessRight);
+   
+  let accessRightEvent = factory.newEvent(NS, 'AccessRightEvent');
+  accessRightEvent.accessRightHash = accessRight.accessRightHash;
+  accessRightEvent.prosumerID = accessRight.dataOwner.prosumerID;
+  accessRightEvent.retailerID = accessRight.dataHolder.retailerID;
+  accessRightEvent.expiryDate = accessRight.expiryDate;
+  accessRightEvent.accessRightStatus = "REVOKED";
+  accessRightEvent.dataSource = accessRight.dataSource;
+  accessRightEvent.creator = accessRight.creator;
+  emit(accessRightEvent);
 }
 
 /**
