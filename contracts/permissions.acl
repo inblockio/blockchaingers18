@@ -1,0 +1,51 @@
+rule NetworkAdminUser {
+    description: "Grant business network administrators full access to user resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "**"
+    action: ALLOW
+}
+
+rule NetworkAdminSystem {
+    description: "Grant business network administrators full access to system resources"
+    participant: "org.hyperledger.composer.system.NetworkAdmin"
+    operation: ALL
+    resource: "org.hyperledger.composer.system.**"
+    action: ALLOW
+}
+
+rule AccessRightSender {
+    description: "Allow the owner of a data total access to accessRight"
+    participant(m): "org.acme.model.ProSumer"
+    operation: ALL
+    resource(v): "org.acme.model.CreateAccessRight"
+    condition: (v.dataOwner.getIdentifier() == m.getIdentifier() && m != v.creator)
+    action: ALLOW
+}
+
+rule AccessRightApprover {
+    description: "Allow the holder of a "
+    participant(m): "org.acme.model.Retailer"
+    operation: ALL
+    resource(v): "org.acme.model.RespondAccessRight"
+    condition: (v.dataHolder.getIdentifier() == m.getIdentifier() && m != v.creator)
+    action: ALLOW
+}
+
+rule DataOwner {
+    description: "Allow the owner of a data total access to accessRight"
+    participant(m): "org.acme.model.ProSumer"
+    operation: READ
+    resource(v): "org.acme.model.AccessRight"
+    condition: (v.dataOwner.getIdentifier() == m.getIdentifier())
+    action: ALLOW
+}
+
+rule DataHolder {
+    description: "Allow the holder of a "
+    participant(m): "org.acme.model.Retailer"
+    operation: READ
+    resource(v): "org.acme.model.AccessRight"
+    condition: (v.dataHolder.getIdentifier() == m.getIdentifier())
+    action: ALLOW
+}
