@@ -23,6 +23,15 @@ rule AccessRightSender {
     action: ALLOW
 }
 
+rule AllowRevokeOnlyForOwner {
+    description: "Only allow the owner to revoke the access right"
+    participant(m): "org.acme.model.ProSumer"
+    operation: CREATE
+    resource(v): "org.acme.model.RevokeAccessRight"
+    condition: (v.accessRight.dataOwner.getIdentifier() == m.getIdentifier())
+    action: ALLOW
+}
+
 rule AccessRightApprover {
     description: "Allow the holder of a "
     participant(m): "org.acme.model.Retailer"
