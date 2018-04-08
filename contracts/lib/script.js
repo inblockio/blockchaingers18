@@ -5,14 +5,14 @@
 const NS = 'org.acme.model';
 
 async function removeAllByResource(ns, func) {
- 	let reg = await func(ns);
-  	let items = await reg.getAll();
-  	console.log("removeAll:items: ", items)
-  	await reg.removeAll(items);
+	let reg = await func(ns);
+	let items = await reg.getAll();
+	console.log("removeAll:items: ", items)
+	await reg.removeAll(items);
 }
      
 /**
- * 	
+ *
  */
 async function removeAll() {
   await removeAllByResource(NS+'.AccessRight', getAssetRegistry);
@@ -49,33 +49,33 @@ async function RevokeAccessRight(RevokeAccessRight){
 function createAccessRight(CreateAccessRight){
   return getAssetRegistry(NS+'.AccessRight')
     .then(function(result) {
-    	var factory = getFactory();
-       	var newAccessRight = factory.newResource(NS, 'AccessRight', CreateAccessRight.accessRightHash);
-    	newAccessRight.dataOwner = CreateAccessRight.dataOwner;
-   	newAccessRight.dataHolder = CreateAccessRight.dataHolder;
-        newAccessRight.accessRightStatus = "PENDING";
-        newAccessRight.expiryDate = CreateAccessRight.expiryDate;
-        newAccessRight.creator = CreateAccessRight.creator;
-    	newAccessRight.dataSource = CreateAccessRight.dataSource;
+	var factory = getFactory();
+	var newAccessRight = factory.newResource(NS, 'AccessRight', CreateAccessRight.accessRightHash);
+	newAccessRight.dataOwner = CreateAccessRight.dataOwner;
+	newAccessRight.dataHolder = CreateAccessRight.dataHolder;
+	newAccessRight.accessRightStatus = "PENDING";
+	newAccessRight.expiryDate = CreateAccessRight.expiryDate;
+	newAccessRight.creator = CreateAccessRight.creator;
+	newAccessRight.dataSource = CreateAccessRight.dataSource;
 	result.add(newAccessRight);
 	emitAccessRightEvent(newAccessRight, CreateAccessRight);
      });
 }
 
 /**
- * 	
+ *
  */
 function emitAccessRightEvent(newAR, CreateAR) {
     var factory = getFactory();
     let accessRightEvent = factory.newEvent(NS, 'AccessRightEvent');
-  	accessRightEvent.accessRightHash = newAR.accessRightHash;
-  	accessRightEvent.prosumerID = newAR.dataOwner.prosumerID;
-  	accessRightEvent.retailerID = newAR.dataHolder.retailerID;
+	accessRightEvent.accessRightHash = newAR.accessRightHash;
+	accessRightEvent.prosumerID = newAR.dataOwner.prosumerID;
+	accessRightEvent.retailerID = newAR.dataHolder.retailerID;
     accessRightEvent.expiryDate = newAR.expiryDate;
     accessRightEvent.accessRightStatus = "PENDING";
     accessRightEvent.dataSource = CreateAR.dataSource;
     accessRightEvent.creator = CreateAR.creator;
-  	emit(accessRightEvent); 
+	emit(accessRightEvent);
 }
 
 
@@ -114,11 +114,11 @@ async function initialize(tx) {
   let proSumerRegistry = await getParticipantRegistry(NS + '.ProSumer');
   let proSumer = factory.newResource(NS, 'ProSumer', '2');
   await proSumerRegistry.addAll([proSumer]);
-  createAccessRightAssets(proSumer, retailer);
+  await createAccessRightAssets(proSumer, retailer);
 }
 
 /**
- * 	
+ *
  */
 async function createAccessRightAssets(pro, ret){
   let factory = getFactory();
@@ -144,7 +144,7 @@ function trackAccess(tx) {
   accessRight.accessCount++;
   return getAssetRegistry(NS + '.AccessRight')
   .then(function(accessRightRegistry) {
-  	return accessRightRegistry.update(accessRight);})
+	return accessRightRegistry.update(accessRight);})
   .then(function() {
     let factory = getFactory();
     let evt = factory.newEvent(NS, 'AccessEvent');
@@ -155,8 +155,3 @@ function trackAccess(tx) {
     emit(evt);
   })
 }
-
-
-
-
-
