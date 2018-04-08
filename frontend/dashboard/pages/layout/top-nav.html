@@ -48,7 +48,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="">DataDash Homepage<span class="sr-only"></span></a></li>
+            <li class="active"><a href="./top-nav.html">DataDash Homepage<span class="sr-only"></span></a></li>
             <li><a href="./access.html">Data Access Control Panel</a></li>
             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -93,11 +93,11 @@
                         </div>
                         <!-- Message title and timestamp -->
                         <h4>
-                          Support Team
+                          Nuon Customer Outreach
                           <small><i class="fa fa-clock-o"></i> 5 mins</small>
                         </h4>
                         <!-- The message -->
-                        <p>Why not buy a new awesome theme?</p>
+                        <p>Looking for a better deal on your gas ?</p>
                       </a>
                     </li>
                     <!-- end message -->
@@ -123,7 +123,7 @@
                   <ul class="menu">
                     <li><!-- start notification -->
                       <a href="#">
-                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        <i class="fa fa-users text-aqua"></i> 5 new access requests this week
                       </a>
                     </li>
                     <!-- end notification -->
@@ -133,41 +133,6 @@
               </ul>
             </li>
             <!-- Tasks Menu -->
-            <li class="dropdown tasks-menu">
-              <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-flag-o"></i>
-                <span class="label label-danger">9</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 9 tasks</li>
-                <li>
-                  <!-- Inner menu: contains the tasks -->
-                  <ul class="menu">
-                    <li><!-- Task item -->
-                      <a href="#">
-                        <!-- Task title and progress text -->
-                        <h3>
-                          Design some buttons
-                          <small class="pull-right">20%</small>
-                        </h3>
-                        <!-- The progress bar -->
-                        <div class="progress xs">
-                          <!-- Change the css width attribute to simulate progress -->
-                          <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                            <span class="sr-only">20% Complete</span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <!-- end task item -->
-                  </ul>
-                </li>
-                <li class="footer">
-                  <a href="#">View all tasks</a>
-                </li>
-              </ul>
-            </li>
             <!-- User Account Menu -->
             <li class="dropdown user user-menu">
               <!-- Menu Toggle Button -->
@@ -183,25 +148,12 @@
                   <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                   <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2012</small>
+                    Alexander Pierce's Smart Meter
+                    <small></small>
                   </p>
                 </li>
                 <!-- Menu Body -->
-                <li class="user-body">
-                  <div class="row">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </div>
-                  <!-- /.row -->
-                </li>
+                
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
@@ -228,11 +180,10 @@
         PersonalDataDashboard
         <small></small>
       </h1>
-      <div class="callout callout-danger">
+      <div class="callout callout-danger" style="margin-top: 3em !important">
           <h4>Warning!</h4>
 
-          <p>The construction of this layout differs from the normal one. In other words, the HTML markup of the navbar
-            and the content will slightly differ than that of the normal layout.</p>
+          <p>Your Data Access Permissions are set to <strong>public</strong> - anyone can access your data ! Please change your Access Permissions <a href="">here</a></p>
       </div>
     </section>
 
@@ -254,7 +205,7 @@
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Interactive Area Chart</h3>
+              <h3 class="box-title">Live Net Power Consumption/Production</h3>
 
               <div class="box-tools pull-right">
                 Real time
@@ -335,7 +286,7 @@
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Line Chart</h3>
+              <h3 class="box-title">Your Current Electric Power Mix</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -344,30 +295,13 @@
               </div>
             </div>
             <div class="box-body">
-              <div id="line-chart" style="height: 300px;"></div>
+              <div id="donut-chart" style="height: 300px;"></div>
             </div>
             <!-- /.box-body-->
           </div>
           <!-- /.box -->
 
           <!-- Area chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Full Width Area Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="area-chart" style="height: 338px;" class="full-width-chart"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
           <!-- /.box -->
 
         </div>
@@ -379,7 +313,7 @@
             <div class="box-header with-border">
               <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">Bar Chart</h3>
+              <h3 class="box-title">Net Power Balance - Monthly</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -395,23 +329,6 @@
           <!-- /.box -->
 
           <!-- Donut chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Donut Chart</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="donut-chart" style="height: 300px;"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
           <!-- /.box -->
         </div>
         <!-- /.col -->
@@ -793,9 +710,9 @@
      */
 
     var donutData = [
-      { label: 'Series2', data: 30, color: '#3c8dbc' },
-      { label: 'Series3', data: 20, color: '#0073b7' },
-      { label: 'Series4', data: 50, color: '#00c0ef' }
+      { label: 'Hydro', data: 30, color: '#1478EA' },
+      { label: 'Solar', data: 20, color: '#E8E016' },
+      { label: 'Gas', data: 50, color: '#23DBA6' }
     ]
     $.plot('#donut-chart', donutData, {
       series: {

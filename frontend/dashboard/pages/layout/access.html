@@ -48,7 +48,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="">DataDash Homepage<span class="sr-only"></span></a></li>
+            <li class="active"><a href="./top-nav.html">DataDash Homepage<span class="sr-only"></span></a></li>
             <li><a href="./access.html">Data Access Control Panel</a></li>
             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -93,11 +93,11 @@
                         </div>
                         <!-- Message title and timestamp -->
                         <h4>
-                          Support Team
+                          Nuon Customer Outreach
                           <small><i class="fa fa-clock-o"></i> 5 mins</small>
                         </h4>
                         <!-- The message -->
-                        <p>Why not buy a new awesome theme?</p>
+                        <p>Looking for a better deal on your gas ?</p>
                       </a>
                     </li>
                     <!-- end message -->
@@ -123,7 +123,7 @@
                   <ul class="menu">
                     <li><!-- start notification -->
                       <a href="#">
-                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        <i class="fa fa-users text-aqua"></i> 5 new access requests this week
                       </a>
                     </li>
                     <!-- end notification -->
@@ -135,38 +135,6 @@
             <!-- Tasks Menu -->
             <li class="dropdown tasks-menu">
               <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-flag-o"></i>
-                <span class="label label-danger">9</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 9 tasks</li>
-                <li>
-                  <!-- Inner menu: contains the tasks -->
-                  <ul class="menu">
-                    <li><!-- Task item -->
-                      <a href="#">
-                        <!-- Task title and progress text -->
-                        <h3>
-                          Design some buttons
-                          <small class="pull-right">20%</small>
-                        </h3>
-                        <!-- The progress bar -->
-                        <div class="progress xs">
-                          <!-- Change the css width attribute to simulate progress -->
-                          <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                            <span class="sr-only">20% Complete</span>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                    <!-- end task item -->
-                  </ul>
-                </li>
-                <li class="footer">
-                  <a href="#">View all tasks</a>
-                </li>
-              </ul>
             </li>
             <!-- User Account Menu -->
             <li class="dropdown user user-menu">
@@ -234,13 +202,6 @@
     
       <!-- Bottom content -->
       <section class="content">
-        <div class="callout callout-info">
-          <h4>Tip!</h4>
-
-          <p>Add the layout-top-nav class to the body tag to get this layout. This feature can also be used with a
-            sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and use regular
-            links instead.</p>
-        </div>
         <div class="callout callout-danger">
           <h4>Warning!</h4>
 
@@ -258,12 +219,12 @@
 
 <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Recent Data Access Events</h3>
+              <h3 class="box-title">Ongoing Permissioned Contracts</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <!-- <table id="example1" class="table table-bordered table-striped"> -->
-                <table id="accesslist" class="display" cellspacing="0" width="100%">
+                <table id="permissionlist" class="display" cellspacing="0" width="100%">
                 <thead>
                 <tr>
                   <th>RetailerID</th>
@@ -306,13 +267,14 @@
                 <div class="col-xs-5">
                   <div align="left" class="form-group">
                     <label>Retailer ID:</label>
+                    <!-- INBLOCK The following selector needs to be populated through JS -->
                     <select class="form-control select2">
-                      <option selected="selected">3145762</option>
-                      <option>option 1</option>
-                      <option>option 2</option>
-                      <option>option 3</option>
-                      <option>option 4</option>
-                      <option>option 5</option>
+                      <option selected="selected">80007612</option>
+                      <option></option>
+                      <option></option>
+                      <option></option>
+                      <option></option>
+                      <option></option>
                     </select>
                   </div>
                   <div class="btn-group">
@@ -322,8 +284,11 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Deny Access</a></li>
+                    <li><a href="#" onclick="">Deny Access</a></li>
                     <li><a href="#">Grant Access</a></li>
+                    <!--
+                    INBLOCK OnCLick should send XHR to API to write the data. The JS function behind it needs to consume the selected item in the above selector
+                    -->
                   </ul>
                 </div>
                 </div>
@@ -342,8 +307,13 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+            <!-- INBLOCK The following SECTION should actually be populated automaticcally after a query is finished parsing. -->
+            <!-- INBLOCK For each pending permission one such box should be created, the retailerID inserted-->
+            <!-- gg -->
+            <!-- INBLOCK Right now this is considered nice to have and JS could query API and change the innerHTML of $(#RetailerID_requests) -->
+            <!-- INBLOCK Obviously right now only suporting one -->
             <div class="box-body">
-           The Retailer with the ID "923823" is requesting access to your data. Would you like to grant or deny them permission?
+           The Retailer with the ID <strong><span id="RetailerID_request">80004554</span></strong> is requesting access to your data. Would you like to grant or deny them permission?
           </div>
            <!-- <form class="form-horizontal">
               <div class="box-body">
@@ -509,6 +479,7 @@
   })
 </script>
 <script>
+    //Attention: Bogus Data
     var arrayReturn = [
         ["bbe53a9a-e5a6-4ea2-a269-ffbf27b80a18","5ac9524a375a85e43ae","ALL"],
 ["3540042d-4a63-4e0f-89f0-d1d91a548488","5ac9524b1a20344c788a9c13","ALL"],
@@ -516,6 +487,9 @@
 ["8bd8cabb-eebe-4d5f-abcd-c9d2955a48ec","5ac9524b170c4998ac700ccb","Mutti ist die beste"],
 ["87a53993-a119-4752-9925-ff593bfa878b","5ac9524be68971b6f3ef83e2","Mutti ist die beste"]
     ];
+    //INBLOCK The following section allows you to populate the table. Further documentation is here:
+    //INBLOCK https://datatables.net/manual/ajax
+
     // $.ajax({
     //     url: "data.json",
     //     async: false,
@@ -529,9 +503,10 @@
     //     }
     // });
 
+     //INBLOCK
     function inittable(data) {
         console.log(data);
-        $('#accesslist').DataTable({
+        $('#permissionlist').DataTable({
             "aaData": data
         });
 
