@@ -1,3 +1,8 @@
+component_depth: 1
+languages:
+- script
+- javascript
+
 exclude:
 - /frontend/dashboard/plugins/.*
 - /frontend/dashboard/documentation/.*
@@ -5,8 +10,3 @@ exclude:
 - /frontend/dashboard/dist/.*
 - /frontend/dashboard/bower_components/.*
 - /frontend/dashboard/Gruntfile\.js
-
-component_depth: 1
-languages:
-- script
-- javascript
