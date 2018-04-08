@@ -227,130 +227,12 @@
       </div>
       <!-- /.row -->
 
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box box-solid">
-            <div class="box-header">
-              <i class="fa fa-bar-chart-o"></i>
 
-              <h3 class="box-title">jQuery Knob Different Sizes</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-default btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-default btn-sm" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div class="row">
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-width="90" data-height="90" data-fgColor="#3c8dbc" data-readonly="true">
-
-                  <div class="knob-label">data-width="90"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-width="120" data-height="120" data-fgColor="#f56954">
-
-                  <div class="knob-label">data-width="120"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" value="30" data-thickness="0.1" data-width="90" data-height="90" data-fgColor="#00a65a">
-
-                  <div class="knob-label">data-thickness="0.1"</div>
-                </div>
-                <!-- ./col -->
-                <div class="col-xs-6 col-md-3 text-center">
-                  <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125" value="30" data-width="120" data-height="120" data-fgColor="#00c0ef">
-
-                  <div class="knob-label">data-angleArc="250"</div>
-                </div>
-                <!-- ./col -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <!-- Line chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Your Current Electric Power Mix</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="donut-chart" style="height: 300px;"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
-          <!-- /.box -->
-
-          <!-- Area chart -->
-          <!-- /.box -->
-
-        </div>
-        <!-- /.col -->
-
-        <div class="col-md-6">
-          <!-- Bar chart -->
-          <div class="box box-primary">
-            <div class="box-header with-border">
-              <i class="fa fa-bar-chart-o"></i>
-
-              <h3 class="box-title">Net Power Balance - Monthly</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <div id="bar-chart" style="height: 300px;"></div>
-            </div>
-            <!-- /.box-body-->
-          </div>
-          <!-- /.box -->
-
-          <!-- Donut chart -->
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
     </section>
 
       <!-- Bottom content -->
       <section class="content">
-        <div class="callout callout-info">
-          <h4>Tip!</h4>
-
-          <p>Add the layout-top-nav class to the body tag to get this layout. This feature can also be used with a
-            sidebar! So use this class if you want to remove the custom dropdown menus from the navbar and use regular
-            links instead.</p>
-        </div>
-        <div class="callout callout-danger">
-          <h4>Warning!</h4>
-
-          <p>The construction of this layout differs from the normal one. In other words, the HTML markup of the navbar
-            and the content will slightly differ than that of the normal layout.</p>
-        </div>
+       
         <div class="box box-default">
           <div class="box-header with-border">
             <h3 class="box-title">Blank Box</h3>
@@ -443,25 +325,20 @@
 <script src="../../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <!-- Page scripts -->
 <script>
-    var arrayReturn = [
-        ["bbe53a9a-e5a6-4ea2-a269-ffbf27b80a18","5ac9524a375a85e43ae","ALL"],
-["3540042d-4a63-4e0f-89f0-d1d91a548488","5ac9524b1a20344c788a9c13","ALL"],
-["05b90688-6198-4ff3-9c71-1bf3725f71ea","5ac9524b9d3d612cd7991298","ALL"],
-["8bd8cabb-eebe-4d5f-abcd-c9d2955a48ec","5ac9524b170c4998ac700ccb","Mutti ist die beste"],
-["87a53993-a119-4752-9925-ff593bfa878b","5ac9524be68971b6f3ef83e2","Mutti ist die beste"]
-    ];
-    // $.ajax({
-    //     url: "data.json",
-    //     async: false,
-    //     dataType: 'json',
-    //     success: function (data) {
-    //    for (var i = 0, len = data.length; i < len; i++) {
-    //      var desc = data[i].body;
-    //      arrayReturn.push([ data[i].userId, '<a href="http://google.com" target="_blank">'+data[i].title+'</a>', desc.substring(0, 12)]);
-    //    }
-    //  inittable(arrayReturn);
-    //     }
-    // });
+    var arrayReturn = [];
+    jQuery.get("http://localhost:3000/api/queries/getAllTransactions").then((data) => {
+    var tableData = [];
+    var filtered = data.filter((item) => {
+        return item.eventsEmitted.length > 0
+    });
+    console.log("filtered: ", filtered);
+    filtered.forEach((item) => {
+		item.eventsEmitted.forEach((evt) => {
+        	tableData.push([evt.retailerID, evt.prosumerID, evt.accessRightHash]);
+        })
+    });
+	inittable(tableData);
+})
 
     function inittable(data) {
         console.log(data);
@@ -471,7 +348,6 @@
 
     }
 
-    inittable(arrayReturn)
 </script>
 <script>
   $(function () {

@@ -82,4 +82,7 @@ transaction TrackAccess {
   --> AccessRight accessRight
 }
 
+transaction AddDemoEvents {
+}
+
 transaction Initialize {}
